@@ -1,3 +1,14 @@
-# Project 3
+# eChat ver.1
 
-Populate this README.md file with relevant information about your project.
+This is a chat application which any companies that want to integrate with thier own app.
+Basically the app is help the company itself communicate with clients in real time messages, pictures (share location and videos will be added in next version)
+
+# Features
+1.Login
+2.sending messages between two users
+3.send photos
+
+# Framework
+1.Core Data
+2.Firebase
+
