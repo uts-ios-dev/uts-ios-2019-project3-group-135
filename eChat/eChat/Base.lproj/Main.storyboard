@@ -115,37 +115,55 @@
             </objects>
             <point key="canvasLocation" x="754.39999999999998" y="132.68365817091455"/>
         </scene>
-        <!--Settings-->
+        <!--View Controller-->
         <scene sceneID="Rvg-jz-S6Q">
             <objects>
                 <viewController id="8qd-rv-rXd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYS-uq-LmF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiJ-lT-FMh">
+                                <rect key="frame" x="155" y="32" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g06-Fo-uoe"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="LBn-X3-tiH"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings_32" selectedImage="settings_32" id="LBn-X3-tiH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEe-B8-vFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="194"/>
+            <point key="canvasLocation" x="3321" y="133"/>
         </scene>
-        <!--Chats-->
+        <!--View Controller-->
         <scene sceneID="nRD-6D-SVh">
             <objects>
                 <viewController id="DDC-w0-DF1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0gV-Wj-vtg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjb-Sr-dgc">
+                                <rect key="frame" x="169" y="32" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PJx-Cb-fwm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chats" id="yAq-3G-lDI"/>
+                    <tabBarItem key="tabBarItem" title="" image="chat_single_32" selectedImage="chat_single_32" id="yAq-3G-lDI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnx-17-vWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="-471"/>
+            <point key="canvasLocation" x="2465" y="-206"/>
         </scene>
         <!--Group-->
         <scene sceneID="jki-uJ-tH6">
@@ -156,7 +174,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-uy-yEb">
-                                <rect key="frame" x="143" y="44" width="88" height="21"/>
+                                <rect key="frame" x="143" y="32" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -166,11 +184,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dQs-rg-PWW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Group" id="8A8-ck-b9Q"/>
+                    <tabBarItem key="tabBarItem" title="" image="chat_group_32" selectedImage="chat_group_32" id="8A8-ck-b9Q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N09-YA-Lzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3202" y="-472"/>
+            <point key="canvasLocation" x="2465" y="507"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xm4-vN-deY">
@@ -194,5 +212,8 @@
     </scenes>
     <resources>
         <image name="chat" width="225" height="225"/>
+        <image name="chat_group_32" width="24" height="24"/>
+        <image name="chat_single_32" width="24" height="24"/>
+        <image name="settings_32" width="25.600000381469727" height="25.600000381469727"/>
     </resources>
 </document>
