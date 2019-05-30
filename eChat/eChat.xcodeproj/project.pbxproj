@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F14F00A229FBF9A00AF0ECA /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F14F009229FBF9A00AF0ECA /* GroupChatViewController.swift */; };
 		9A803E2F22966AEB00731DA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A803E2E22966AEB00731DA2 /* AppDelegate.swift */; };
 		9A803E3122966AEB00731DA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A803E3022966AEB00731DA2 /* ViewController.swift */; };
 		9A803E3422966AEB00731DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A803E3222966AEB00731DA2 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F14F009229FBF9A00AF0ECA /* GroupChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
 		9A803E2B22966AEB00731DA2 /* eChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A803E2E22966AEB00731DA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A803E3022966AEB00731DA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				9A803E3A22966AEC00731DA2 /* LaunchScreen.storyboard */,
 				9A803E3D22966AEC00731DA2 /* Info.plist */,
 				9A803E3522966AEB00731DA2 /* eChat.xcdatamodeld */,
+				4F14F009229FBF9A00AF0ECA /* GroupChatViewController.swift */,
 			);
 			path = eChat;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F14F00A229FBF9A00AF0ECA /* GroupChatViewController.swift in Sources */,
 				9A803E3122966AEB00731DA2 /* ViewController.swift in Sources */,
 				9A803E2F22966AEB00731DA2 /* AppDelegate.swift in Sources */,
 				9A803E3722966AEB00731DA2 /* eChat.xcdatamodeld in Sources */,
