@@ -101,17 +101,11 @@
 			isa = PBXGroup;
 			children = (
 				6C5FF3A02299694E003C9C25 /* AppDelegate.swift */,
-				6CE54245229F1C1A0034769F /* ChatsViewController.swift */,
-				6CE54247229F2DBC0034769F /* ProfileViewTableViewController.swift */,
+				6C5FF3A42299694E003C9C25 /* Main.storyboard */,
 				6C5FF3C1229AAB55003C9C25 /* Classes */,
 				6C5FF3C0229AAAE3003C9C25 /* Helpers */,
-				6C5FF3B2229972F2003C9C25 /* WelcomeViewController.swift */,
-				6C5FF3BE229AAAAD003C9C25 /* FinishRegistrationViewController.swift */,
-				6CE54240229F11770034769F /* Custom Cells */,
-				6C5FF3A42299694E003C9C25 /* Main.storyboard */,
 				6C5FF3A72299694F003C9C25 /* Assets.xcassets */,
-				6CE2A465229EFCCF0050EFEB /* SettingsTableViewController.swift */,
-				6CE54243229F12460034769F /* UserTableViewController.swift */,
+				6C7DE84622A532170034E9AF /* ViewController */,
 				6C5FF3A92299694F003C9C25 /* LaunchScreen.storyboard */,
 				6C5FF3AC2299694F003C9C25 /* Info.plist */,
 				6C5FF3B4229A7771003C9C25 /* GoogleService-Info.plist */,
@@ -135,6 +129,20 @@
 				6C5FF3B6229A7A1B003C9C25 /* FUser.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		6C7DE84622A532170034E9AF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6CE54240229F11770034769F /* Custom Cells */,
+				6C5FF3B2229972F2003C9C25 /* WelcomeViewController.swift */,
+				6C5FF3BE229AAAAD003C9C25 /* FinishRegistrationViewController.swift */,
+				6CE2A465229EFCCF0050EFEB /* SettingsTableViewController.swift */,
+				6CE54245229F1C1A0034769F /* ChatsViewController.swift */,
+				6CE54243229F12460034769F /* UserTableViewController.swift */,
+				6CE54247229F2DBC0034769F /* ProfileViewTableViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		6CE54240229F11770034769F /* Custom Cells */ = {
