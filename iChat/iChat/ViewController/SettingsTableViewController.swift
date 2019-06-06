@@ -14,7 +14,6 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.prefersLargeTitles = true
-
     }
 
     // MARK: - Table view data source
@@ -27,26 +26,18 @@ class SettingsTableViewController: UITableViewController {
         return 3
     }
 
-
-    
-    
     //MARK: IBActions
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
-        
         FUser.logOutCurrentUser { (success) in
-            
             if success {
                 self.showLoginView()
             }
         }
     }
-    
-    
+
     func showLoginView() {
-        
         let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "welcome")
-        
         self.present(mainView, animated: true, completion: nil)
     }
 }

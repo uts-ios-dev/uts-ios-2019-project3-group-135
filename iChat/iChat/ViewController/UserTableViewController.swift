@@ -11,11 +11,9 @@ import Firebase
 import ProgressHUD
 
 class UserTableViewController: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {
-
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var filterSegmentedControll: UISegmentedControl!
-    
     
     var allUsers: [FUser] = []
     var filteredUsers: [FUser] = []
@@ -27,7 +25,6 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         self.title = "Users"
         navigationItem.largeTitleDisplayMode = .never
         tableView.tableFooterView = UIView()
@@ -50,7 +47,6 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
         } else {
             return allUsersGroupped.count
         }
-        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,7 +54,6 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
         if searchController.isActive && searchController.searchBar.text != "" {
             
             return filteredUsers.count
-            
         } else {
             
             //find section Title
@@ -69,14 +64,12 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
             
             return users!.count
         }
-        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
-        
-        
+
         var user: FUser
         
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -90,16 +83,13 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
             
             user = users![indexPath.row]
         }
-        
-        
-        
+
         cell.generateCellWith(fUser:user, indexPath: indexPath)
         cell.delegate = self
         
         return cell
     }
-    
-    
+
     //MARK: TableView Delegate
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -171,19 +161,14 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
                         self.allUsers.append(fUser)
                     }
                 }
-                
                 self.splitDataIntoSection()
                 self.tableView.reloadData()
             }
-            
             self.tableView.reloadData()
             ProgressHUD.dismiss()
-            
         }
-        
     }
-    
-    
+
     //MARK: IBActions
     
     @IBAction func filterSegmentValueChanged(_ sender: UISegmentedControl) {
@@ -198,16 +183,12 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
         default:
             return
         }
-        
     }
-    
-    
+
     //MARK: Search controller functions
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        
         filteredUsers = allUsers.filter({ (user) -> Bool in
-            
             return user.firstname.lowercased().contains(searchText.lowercased())
         })
         
@@ -215,66 +196,43 @@ class UserTableViewController: UITableViewController, UISearchResultsUpdating, U
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
     //MARK: Helper functions
     
     fileprivate func splitDataIntoSection() {
-        
         var sectionTitle: String = ""
         
         for i in 0..<self.allUsers.count {
-            
             let currentUser = self.allUsers[i]
-            
             let firstChar = currentUser.firstname.first!
-            
             let firstCarString = "\(firstChar)"
             
-            
             if firstCarString != sectionTitle {
-                
                 sectionTitle = firstCarString
-                
                 self.allUsersGroupped[sectionTitle] = []
-                
                 self.sectionTitleList.append(sectionTitle)
             }
-            
             self.allUsersGroupped[firstCarString]?.append(currentUser)
-            
         }
-
     }
-    
-    
+
     //MARK: UserTableViewCellDelegate
     
     func didTapAvatarImage(indexPath: IndexPath) {
-        
         let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
-        
         var user: FUser
         
         if searchController.isActive && searchController.searchBar.text != "" {
-            
             user = filteredUsers[indexPath.row]
         } else {
-            
             let sectionTitle = self.sectionTitleList[indexPath.section]
-            
             let users = self.allUsersGroupped[sectionTitle]
-            
             user = users![indexPath.row]
         }
         
         profileVC.user = user
         self.navigationController?.pushViewController(profileVC, animated: true)
-    
     }
-    
-    
-    
 }

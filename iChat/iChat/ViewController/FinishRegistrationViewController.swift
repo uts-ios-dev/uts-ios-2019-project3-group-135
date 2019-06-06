@@ -8,7 +8,7 @@
 
 import UIKit
 import ProgressHUD
-
+import Firebase
 
 class FinishRegistrationViewController: UIViewController {
 
@@ -24,11 +24,23 @@ class FinishRegistrationViewController: UIViewController {
     var password: String!
     var avatarImage: UIImage?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+//        let ref = Database.database().reference(fromURL: "https://ichat-fe3fe.firebaseio.com/")
+//        let usersReference = ref.child("users")
+//        let values = ["name": nameTextField.text]
+//        usersReference.updateChildValues(values, withCompletionBlock: {
+//            (err, ref) in
+//
+//            if err != nil {
+//                print(err)
+//                return
+//            }
+//
+//            print("Saved user successfully into firebase")
+//        })
+//
     }
     
     
@@ -47,88 +59,58 @@ class FinishRegistrationViewController: UIViewController {
         ProgressHUD.show("Registering...")
         
         if nameTextField.text != "" && surnameTextField.text != "" && countryTextField.text != "" && cityTextField.text != "" && phoneTextField.text != "" {
-            
             FUser.registerUserWith(email: email!, password: password!, firstName: nameTextField.text!, lastName: surnameTextField.text!) { (error) in
-                
                 if error != nil {
                     ProgressHUD.dismiss()
                     ProgressHUD.showError(error!.localizedDescription)
                     return
                 }
-                
                 self.registerUser()
             }
         } else {
             ProgressHUD.showError("All fields are required!")
         }
-        
-        
     }
-    
     
     //MARK: Helpers
     
     func registerUser() {
-        
         let fullName = nameTextField.text! + " " + surnameTextField.text!
-        
         var tempDictionary : Dictionary = [kFIRSTNAME : nameTextField.text!, kLASTNAME : surnameTextField.text!, kFULLNAME : fullName, kCOUNTRY : countryTextField.text!, kCITY : cityTextField.text!, kPHONE : phoneTextField.text!] as [String : Any]
-        
-        
         if avatarImage == nil {
-            
             imageFromInitials(firstName: nameTextField.text!, lastName: surnameTextField.text!) { (avatarInitials) in
-                
                 let avatarIMG = avatarInitials.jpegData(compressionQuality: 0.7)
                 let avatar = avatarIMG?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-                
                 tempDictionary[kAVATAR] = avatar
-                
                 self.finishRegistration(withValues: tempDictionary)
             }
-            
-            
-            
         } else {
-            
             let avatarData = avatarImage?.jpegData(compressionQuality: 0.7)
             let avatar = avatarData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-            
             tempDictionary[kAVATAR] = avatar
-            
             self.finishRegistration(withValues: tempDictionary)
         }
-        
     }
     
-    
     func finishRegistration(withValues: [String : Any]) {
-        
         updateCurrentUserInFirestore(withValues: withValues) { (error) in
-            
             if error != nil {
-                
                 DispatchQueue.main.async {
                     ProgressHUD.showError(error!.localizedDescription)
                     print(error!.localizedDescription)
                 }
                 return
             }
-            
             ProgressHUD.dismiss()
             self.goToApp()
         }
     }
     
     func goToApp() {
-        
         cleanTextFields()
         dismissKeyboard()
-        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID : FUser.currentId()])
-        
         let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
-        
         self.present(mainView, animated: true, completion: nil)
     }
     

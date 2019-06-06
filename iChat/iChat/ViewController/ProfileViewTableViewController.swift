@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileViewTableViewController: UITableViewController {
 
-    
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
@@ -19,9 +18,7 @@ class ProfileViewTableViewController: UITableViewController {
     @IBOutlet weak var blockButtonOutlet: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
     
-    
     var user: FUser?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,24 +26,19 @@ class ProfileViewTableViewController: UITableViewController {
         setupUI()
     }
     
-    
     //MARK: IBActions
-    
     @IBAction func callButtonPressed(_ sender: Any) {
-        
         
     }
     
     @IBAction func chatButtonPressed(_ sender: Any) {
-        
-        
         
     }
     
     @IBAction func blockUserButtonPressed(_ sender: Any) {
         
         var currentBlockedIds = FUser.currentUser()!.blockedUsers
-        
+
         if currentBlockedIds.contains(user!.objectId) {
             currentBlockedIds.remove(at: currentBlockedIds.index(of: user!.objectId)!)
         } else {
@@ -59,15 +51,11 @@ class ProfileViewTableViewController: UITableViewController {
                 print("error \(error!.localizedDescription)")
                 return
             }
-            
             self.updateBlockStatus()
-
         }
-
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -89,7 +77,6 @@ class ProfileViewTableViewController: UITableViewController {
         if section == 0 {
             return 0
         }
-        
         return 30
     }
    

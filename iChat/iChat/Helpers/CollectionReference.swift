@@ -9,7 +9,6 @@
 import Foundation
 import FirebaseFirestore
 
-
 enum FCollectionReference: String {
     case User
     case Typing
@@ -18,7 +17,6 @@ enum FCollectionReference: String {
     case Group
     case Call
 }
-
 
 func reference(_ collectionReference: FCollectionReference) -> CollectionReference {
     return Firestore.firestore().collection(collectionReference.rawValue)

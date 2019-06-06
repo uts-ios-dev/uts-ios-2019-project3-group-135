@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatsViewController: UIViewController {
+  
+    @IBOutlet weak var inputTextField: UITextField!
 
-    
-    
-    
     override func viewDidLoad() {
+        let ref = Database.database().reference(fromURL: "https://ichat-fe3fe.firebaseio.com/")
+        let usersReference = ref.child("users")
         super.viewDidLoad()
-
+        
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     //MARK: IBActions
     
     @IBAction func createNewChatButtonPressed(_ sender: Any) {
@@ -28,6 +30,10 @@ class ChatsViewController: UIViewController {
         self.navigationController?.pushViewController(userVC, animated: true)
     }
     
-    
-
+    @IBAction func sendButton(_ sender: Any) {
+        let ref = Database.database().reference().child("messages")
+        let childRef = ref.childByAutoId()
+        let values = ["text": inputTextField.text!]
+        childRef.updateChildValues(values)
+    }
 }
